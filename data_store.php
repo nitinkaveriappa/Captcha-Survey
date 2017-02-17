@@ -74,11 +74,11 @@ class store_incoming
 			$addUserData->bindParam(':email',$email);
 			$addUserData->execute();
 		//Sends the thankYou email to member
-		//$this->thankYou($playerEmail,$code);
+		//$this->thankYou($email);
 	}
 
 	//send email
-	function thankYou($email, $code)
+	function thankYou($email)
 	{
 		//send thankYou
 		$config = parse_ini_file('config.php');
