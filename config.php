@@ -1,15 +1,14 @@
 <?php
 //Config file with .php extension to prevent output as plain text if accessed
-/*[database]
+[database]
 servername = 'localhost'
 username = 'root'
-password = 'Chinni@1713'
-dbname = 'fanodb'
+password = 'shoe'
+dbname = 'SurveyForm'
 
 [captcha]
-secret = '6LfxXxQUAAAAAH9fnPKXu13IOCnEnz8PEyYQHLwc'
-*/
+secret = '6Lf0oAgUAAAAAD6f9YelgkesEGy7hI_N4i4f7CVX'
+
 [log]
 logfile = 'log.log'
-
-?>
+ ?>

@@ -49,7 +49,7 @@ else {
 		document.getElementById("alphalabel").innerHTML = "Alpha: " + alpha;
 		document.getElementById("betalabel").innerHTML = "Beta: " + beta;
 		document.getElementById("gammalabel").innerHTML = "Gamma: " + gamma;
-		
+
 
 		var obj = ax+','+ay+','+az+','+ai+','+arAlpha+','+arBeta+','+arGamma+','+alpha+','+beta+','+gamma;
 		var data ="data="+obj;
@@ -59,11 +59,11 @@ else {
 
 function sendData(data) {
 	$.ajax({
-		url: 'survey_submit.php',
+		url: 'survey_data.php',
 		data: data,
 		type: 'POST',
 		dataType: 'text',
 		success: function(){ },
-		error: function() {alert("Move made Error");}
+		error: function() {alert("No Values");}
 		});
 }
