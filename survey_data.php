@@ -10,7 +10,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 		include('data_store.php');
 		$survey_data = new store_incoming();
-    $survey_data->hardware_data($values,$remoteip);
+    	$survey_data->hardware_data($values,$remoteip);
+		echo "php";
 	}
 	else
 	{

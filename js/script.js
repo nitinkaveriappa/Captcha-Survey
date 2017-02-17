@@ -63,7 +63,7 @@ function sendData(data) {
 		data: data,
 		type: 'POST',
 		dataType: 'text',
-		success: function(){ },
-		error: function() {alert("No Values");}
+		success: function(res){ alert(res) },
+		error: function() {alert("Ajax Error");}
 		});
 }

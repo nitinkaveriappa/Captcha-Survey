@@ -16,13 +16,15 @@ function db_connect() {
 			$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$setDBQuery = $connection->prepare("USE SurveyForm;");
 			$setDBQuery->execute();
+			echo "succ";
 		}
 		// If connection was not successful, handle the error
 		catch(PDOException $e)
 		{
 			 // Handle error - notify administrator, log to a file, show an error screen, etc.
        //log_it("Database connection unsuccessful:".$e->getMessage());
-       header('Location:errorpage.html');
+       //header('Location:errorpage.html');
+	   echo "db error";
 		}
     }
     return $connection;

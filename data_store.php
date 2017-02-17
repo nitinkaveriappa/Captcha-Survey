@@ -50,7 +50,7 @@ class store_incoming
 			$addGyroData->bindParam(':gamma',$values[9]);
 			$addGyroData->execute();
 		//}
-
+echo "data insert ";
 		//log_it("$playerEmail registration successful, pending verification");
 		//header('Location:index.html');
 	}
