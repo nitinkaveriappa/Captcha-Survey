@@ -2,7 +2,7 @@
 class store_incoming
 {
 	//store incoming_data
-	function incoming_data($values,$remoteip)
+	function hardware_data($values,$remoteip)
 	{
 		include('dbconnect.php');
 		//include('log.php');
