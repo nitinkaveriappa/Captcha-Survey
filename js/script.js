@@ -11,7 +11,8 @@ var alpha = 0;
 var beta = 0;
 var gamma = 0;
 
-var delay = 200;
+var count = 0;
+var delay = 500;
 
 if (window.DeviceMotionEvent==undefined) {
 	document.getElementById("no").style.display="block";
@@ -37,7 +38,8 @@ else {
 		gamma = Math.round(event.gamma);
 	}
 
-	setInterval(function() {
+
+var intervalId = setInterval(function() {
 		document.getElementById("xlabel").innerHTML = "X: " + ax;
 		document.getElementById("ylabel").innerHTML = "Y: " + ay;
 		document.getElementById("zlabel").innerHTML = "Z: " + az;
@@ -54,7 +56,18 @@ else {
 		var obj = ax+','+ay+','+az+','+ai+','+arAlpha+','+arBeta+','+arGamma+','+alpha+','+beta+','+gamma;
 		var data ="data="+obj;
 		sendData(data);
+		counter++;
 	}, delay);
+	
+	
+while(true)
+{
+	if(counter >= 240)
+	{
+		clearInterval(intervalId);
+	}
+}
+	
 }
 
 function sendData(data) {
