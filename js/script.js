@@ -40,6 +40,11 @@ else {
 
 
 var intervalId = setInterval(function() {
+		counter++;
+		if(counter >= 10)
+		{
+			clearInterval(intervalId);
+		}
 		document.getElementById("xlabel").innerHTML = "X: " + ax;
 		document.getElementById("ylabel").innerHTML = "Y: " + ay;
 		document.getElementById("zlabel").innerHTML = "Z: " + az;
@@ -56,15 +61,12 @@ var intervalId = setInterval(function() {
 		var obj = ax+','+ay+','+az+','+ai+','+arAlpha+','+arBeta+','+arGamma+','+alpha+','+beta+','+gamma;
 		var data ="data="+obj;
 		sendData(data);
-		counter++;
+		
 	}, delay);
 	
 	
 
-if(counter >= 240)
-{
-	clearInterval(intervalId);
-}
+
 
 	
 }
