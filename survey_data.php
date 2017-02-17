@@ -11,7 +11,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	
 		$survey_data = new store_incoming();
     	$survey_data->hardware_data($values,$remoteip);
-echo "php";		
 	}
 	else
 	{
