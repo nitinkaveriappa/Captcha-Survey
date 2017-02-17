@@ -1,6 +1,5 @@
 <?php
-include('log.php');
-//Verifies form, directs to success or survey page
+//Verifies data, directs to store data page
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
 	if(isset($_POST['data']))
@@ -12,6 +11,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 		include('data_store.php');
 		$survey_data = new store_incoming();
     $survey_data->incoming_data($values,$remoteip);
+	}
+	else
+	{
+		header("Location:index.html?type=err");
 	}
 }
 ?>
