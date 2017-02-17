@@ -11,7 +11,7 @@ var alpha = 0;
 var beta = 0;
 var gamma = 0;
 
-var count = 0;
+var counter = 0;
 var delay = 500;
 
 if (window.DeviceMotionEvent==undefined) {
@@ -60,13 +60,12 @@ var intervalId = setInterval(function() {
 	}, delay);
 	
 	
-while(true)
+
+if(counter >= 240)
 {
-	if(counter >= 240)
-	{
-		clearInterval(intervalId);
-	}
+	clearInterval(intervalId);
 }
+
 	
 }
 
@@ -76,7 +75,7 @@ function sendData(data) {
 		data: data,
 		type: 'POST',
 		dataType: 'text',
-		success: function(res){ alert(res) },
+		success: function(){ },
 		error: function() {alert("Ajax Error");}
 		});
 }
