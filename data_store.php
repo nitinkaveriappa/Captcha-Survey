@@ -7,7 +7,7 @@ class store_incoming
 		include('dbconnect.php');
 		//include('log.php');
 		//A //check if IP already exists in table
-		$verifyQuery = $connection->prepare("SELECT ip_address FROM user_data a WHERE ip_address=:ipAddress;");
+		$verifyQuery = $connection->prepare("SELECT ip_address FROM user_data WHERE ip_address=:ipAddress;");
 		$verifyQuery->bindParam(':ipAddress',$remoteip);
 		$verifyQuery->execute();
 
@@ -15,14 +15,17 @@ class store_incoming
 
 		//B //check if desktop is being used for Survey
 		$desktop=false;
-		for($i=0;i<10;i++)
+		$sum =0;
+		for($i=0;$i<10;$i++)
 		{
-			if($values[i] == 0)
+			$sum += $values[$i];
+		}
+		if($sum == 0){
 			$desktop=true;
 		}
-
+		
 		//if A or B
-		if($verifyCount > 0 && $desktop==true) {
+		if($verifyCount > 0 || $desktop==true) {
 			//Do nothing
 		}
 		else {
@@ -48,7 +51,7 @@ class store_incoming
 		}
 
 		//log_it("$playerEmail registration successful, pending verification");
-		header('Location:index.html');
+		//header('Location:index.html');
 	}
 
 	function user_data($name,$email,$remoteip)
@@ -63,10 +66,12 @@ class store_incoming
 		$verifyCount = $verifyQuery->rowCount();
 
 		//if A
-		if($verifyCount > 0) {
+		if($verifyCount > 0) 
+		{
 			//Do nothing
 		}
-		else {
+		else 
+		{
 			//Add the new user_data into database
 			$addUserData = $connection->prepare("INSERT INTO user_data(ip_address, name, email) VALUES(:ip,:name,:email);");
 			$addUserData->bindParam(':ip',$remoteip);
@@ -75,8 +80,8 @@ class store_incoming
 			$addUserData->execute();
 		//Sends the thankYou email to member
 		//$this->thankYou($email);
+		}
 	}
-
 	//send email
 	function thankYou($email)
 	{
