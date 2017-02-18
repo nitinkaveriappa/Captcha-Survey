@@ -23,7 +23,7 @@ function db_connect() {
 			 // Handle error - notify administrator, log to a file, show an error screen, etc.
        //log_it("Database connection unsuccessful:".$e->getMessage());
        header('Location:errorpage.html');
-		}
+	  }
     }
     return $connection;
 }

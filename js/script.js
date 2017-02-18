@@ -11,7 +11,8 @@ var alpha = 0;
 var beta = 0;
 var gamma = 0;
 
-var delay = 200;
+var counter = 0;
+var delay = 500;
 
 if (window.DeviceMotionEvent==undefined) {
 	document.getElementById("no").style.display="block";
@@ -37,7 +38,13 @@ else {
 		gamma = Math.round(event.gamma);
 	}
 
-	setInterval(function() {
+
+var intervalId = setInterval(function() {
+		counter++;
+		if(counter >= 10)
+		{
+			clearInterval(intervalId);
+		}
 		document.getElementById("xlabel").innerHTML = "X: " + ax;
 		document.getElementById("ylabel").innerHTML = "Y: " + ay;
 		document.getElementById("zlabel").innerHTML = "Z: " + az;
@@ -54,7 +61,14 @@ else {
 		var obj = ax+','+ay+','+az+','+ai+','+arAlpha+','+arBeta+','+arGamma+','+alpha+','+beta+','+gamma;
 		var data ="data="+obj;
 		sendData(data);
+		
 	}, delay);
+	
+	
+
+
+
+	
 }
 
 function sendData(data) {
@@ -64,6 +78,6 @@ function sendData(data) {
 		type: 'POST',
 		dataType: 'text',
 		success: function(){ },
-		error: function() {alert("No Values");}
+		error: function() {alert("Ajax Error");}
 		});
 }

@@ -23,16 +23,26 @@ class store_incoming
 		if($sum == 0){
 			$desktop=true;
 		}
+<<<<<<< HEAD
 
 		//if A or B
 		//if($verifyCount > 0 || $desktop=true) {
 
+=======
+	
+		//if A or B
+		if($verifyCount < 0 || $desktop==true) {
+>>>>>>> origin/master
 			//Do nothing
-		//}
-		//else {
+		}
+		else {
 			//Add the new data into database
 			//accelerometer_data
+<<<<<<< HEAD
 			$addAccelData = $connection->prepare("INSERT INTO accelerometer_data(ip_address, acc_x, acc_y, acc_z, acc_i, acc_alpha, acc_beta, acc_gamma) VALUES(:ip,:x,:y,:z,:i,:a,:b,:g);");
+=======
+			$addAccelData = $connection->prepare("INSERT INTO accelerometer_data (ip_address, acc_x, acc_y, acc_z, acc_i, acc_alpha, acc_beta, acc_gamma) VALUES(:ip,:x,:y,:z,:i,:a,:b,:g);");
+>>>>>>> origin/master
 			$addAccelData->bindParam(':ip',$remoteip);
 			$addAccelData->bindParam(':x',$values[0]);
 			$addAccelData->bindParam(':y',$values[1]);
@@ -49,8 +59,7 @@ class store_incoming
 			$addGyroData->bindParam(':beta',$values[8]);
 			$addGyroData->bindParam(':gamma',$values[9]);
 			$addGyroData->execute();
-		//}
-
+		}
 		//log_it("$playerEmail registration successful, pending verification");
 		//header('Location:index.html');
 	}
