@@ -7,7 +7,7 @@ password = 'shoe'
 dbname = 'SurveyForm'
 
 [captcha]
-secret = '6Lf0oAgUAAAAAD6f9YelgkesEGy7hI_N4i4f7CVX'
+secret = '6LdahgcUAAAAAOd6zMYFIhe7KLFIN_m-yva7iWt7'
 
 [log]
 logfile = 'log.log'
