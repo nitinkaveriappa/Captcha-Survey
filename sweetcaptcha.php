@@ -8,7 +8,7 @@
 define('SWEETCAPTCHA_APP_ID', 243711); // your application id (change me)
 define('SWEETCAPTCHA_KEY', '104156b95efc861fff5f417d0a2eb751'); // your application key (change me)
 define('SWEETCAPTCHA_SECRET', 'e5281ee98a1a8dd213140b354e8aa1ac'); // your application secret (change me)
-define('SWEETCAPTCHA_PUBLIC_URL', 'http://paurav.com/sweetcaptcha.php'); // public http url to this file
+define('SWEETCAPTCHA_PUBLIC_URL', 'https://paurav.com/sweetcaptcha.php'); // public http url to this file
 
 
 /////==== Do not change below here ===/////
