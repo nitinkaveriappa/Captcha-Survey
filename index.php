@@ -67,7 +67,7 @@ if ($idle > 180)
     window.onload = function() {
       errCheck()	};
   </script>
-  <script src="js/error.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
   </head>
 
