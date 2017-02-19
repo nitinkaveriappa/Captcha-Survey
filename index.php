@@ -75,9 +75,8 @@ if ($idle > 180)
 
     <div class="container">
 
-      <span id="errmsg" style="color:#F03"> </span><br/><br/>
-
       <form class="form-signin" action="submit_data.php" method="POST">
+        <span id="errmsg" style="color:#F03"> </span><br/>
         <h2 class="form-signin-heading">Captcha-Survey</h2>
 		    <label for="inputName" class="sr-only">Name</label>
 		    <input type="text" name="Name" id="inputName" class="form-control" placeholder="John Doe" autofocus>
