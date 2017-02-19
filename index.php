@@ -96,6 +96,19 @@ if ($idle > 180)
         <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
       </form>
 
+<?php
+      if (isset($_POST['sckey']) and isset($_POST['scvalue']) and $sweetcaptcha->check(array('sckey' => $_POST['sckey'], 'scvalue' => $_POST['scvalue'])) == "true") {
+          // success! your form was validated
+          // do what you like next ...
+          $_SESSION['sweet'] = true;
+        }
+        else {
+          // alas! the validation has failed, the user might be a spam bot or just got the result wrong
+          // handle this as you like
+          $_SESSION['sweet'] = false;
+        }
+?>
+
 	<center>
 		Hardware Values<br>
 		<div id="yes">

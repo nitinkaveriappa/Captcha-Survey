@@ -1,6 +1,8 @@
 <?php
 session_start();
 $current_id = session_id();
+$sweet = $_SESSION['sweet'];
+
 //Verifies form, directs to success or survey page
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
@@ -22,17 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	{
 		header("Location:index.php?type=err");
 	}
-	$sweet=false;
-	//validate sweetcaptcha
-	if (isset($_POST['sckey']) and isset($_POST['scvalue']) and $sweetcaptcha->check(array('sckey' => $_POST['sckey'], 'scvalue' => $_POST['scvalue'])) == "true")
-	{
-		// success! sweetcaptcha was validated
-		$sweet=true;
-	}
-	else
-	{
-		$sweet=false;
-	}
+
 	//Verifies the Google captcha is set
 	if(isset($_POST['g-recaptcha-response']))
 	{
