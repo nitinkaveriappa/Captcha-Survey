@@ -20,7 +20,7 @@ if ($idle > 30000)
 	}
 	//Destroy session
    	if(session_destroy()) {
-      header("Location:index.html");
+      header("Location:index.php");
    }
  }
 ?>
