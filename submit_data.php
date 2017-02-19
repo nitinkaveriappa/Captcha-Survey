@@ -22,8 +22,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	{
 		header("Location:index.html?type=err");
 	}
-
-	//Verifies the captcha is set
+	$sweet=false;
+	//validate sweetcaptcha
+	if (isset($_POST['sckey']) and isset($_POST['scvalue']) and $sweetcaptcha->check(array('sckey' => $_POST['sckey'], 'scvalue' => $_POST['scvalue'])) == "true")
+	{
+		// success! sweetcaptcha was validated
+		$sweet=true;
+	}
+	else
+	{
+		$sweet=false;
+	}
+	//Verifies the Google captcha is set
 	if(isset($_POST['g-recaptcha-response']))
 	{
 		$captcha=$_POST['g-recaptcha-response'];
@@ -41,9 +51,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	$data = json_decode($response);
 
 	//If its a bot it redirects to index
-	if($data->success==false)
+	if($data->success==false && $sweet==false)
      {
-       header("Location:contactme.html?type=err");
+       header("Location:contactme.html?type=bot");
      }
 	//If not a bot 	then tries to login in player
 	else {
