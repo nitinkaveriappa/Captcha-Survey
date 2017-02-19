@@ -83,18 +83,83 @@ if ($idle > 180)
         <span id="errmsg" style="color:#F03"> </span><br/>
         <h2 class="form-signin-heading">Captcha-Survey</h2>
 		    <label for="inputName" class="sr-only">Name</label>
-		    <input type="text" name="Name" id="inputName" class="form-control" placeholder="John Doe" autofocus>
+		    <input type="text" name="Name" id="inputName" class="form-control" placeholder="John Doe" autofocus><br/>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" name="Email" id="inputEmail" class="form-control" placeholder="johndoe@gmail.com">
         <br/>
+        <p>Please solve this captcha below!</p>
         <div class="g-recaptcha" data-theme="dark" data-sitekey="6LdahgcUAAAAAAm5QqZCBVaaIvZIhL5ehTSPXsd2"></div>
         <br/>
+        <p>How user friendly did you find the above captcha to fill?</p>
+        <div class="radio">
+          <label><input type="radio" name="googleradio">1 (Most User Unfriendly)</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="googleradio">2</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="googleradio">3</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="googleradio">4</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="googleradio">5</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="googleradio">6</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="googleradio">7</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="googleradio">8</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="googleradio">9</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="googleradio">10 (Most User Friendly)</label>
+        </div>
+        <br/>
+        <p>Please solve this captcha below!</p>
         <!-- sweetcaptcha -->
         <?php
         require_once('sweetcaptcha.php');
         echo $sweetcaptcha->get_html()
         ?>
         <br/>
+        <p>How user friendly did you find the above captcha to fill?</p>
+        <div class="radio">
+          <label><input type="radio" name="sweetradio">1 (Most User Unfriendly)</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="sweetradio">2</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="sweetradio">3</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="sweetradio">4</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="sweetradio">5</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="sweetradio">6</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="sweetradio">7</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="sweetradio">8</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="sweetradio">9</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="sweetradio">10 (Most User Friendly)</label>
+        </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
       </form>
 
