@@ -87,7 +87,10 @@ if ($idle > 180)
         <div class="g-recaptcha" data-theme="dark" data-sitekey="6LdahgcUAAAAAAm5QqZCBVaaIvZIhL5ehTSPXsd2"></div>
         <br/>
         <!-- implement sweetcaptcha -->
-        <?php echo $sweetcaptcha->get_html() ?>
+        <?php
+        require_once('sweetcaptcha.php');
+        echo $sweetcaptcha->get_html()
+        ?>
          <!-- continue with your form -->
          <br/>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
