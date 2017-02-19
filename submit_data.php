@@ -11,7 +11,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	}
 	else
 	{
-		header("Location:index.html?type=err");
+		header("Location:index.php?type=err");
 	}
 	//Verifies Email is in valid format
 	if(isset($_POST['Email']) && preg_match('/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{1,4}$/',$_POST['Email'])  && strlen($_POST['Email']) < 50)
@@ -20,7 +20,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	}
 	else
 	{
-		header("Location:index.html?type=err");
+		header("Location:index.php?type=err");
 	}
 	$sweet=false;
 	//validate sweetcaptcha
@@ -40,7 +40,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	}
 	else
 	{
-		header("Location:index.html?type=err");
+		header("Location:index.php?type=err");
 	}
 
 	//get captcha secret
@@ -53,7 +53,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	//If its a bot it redirects to index
 	if($data->success==false && $sweet==false)
      {
-       header("Location:contactme.html?type=bot");
+       header("Location:index.php?type=bot");
      }
 	//If not a bot 	then tries to login in player
 	else {
@@ -92,7 +92,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-	
+
 	<style>
 	#no {
 		display: none;
