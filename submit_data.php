@@ -23,9 +23,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	{
 		header("Location:index.php?type=err");
 	}
-
 	//Verifies the Sweet captcha is set
 	$sweet=false;
+	require_once("sweetcaptcha.php");
 	if (isset($_POST['sckey']) && isset($_POST['scvalue']) && $sweetcaptcha->check(array('sckey' => $_POST['sckey'], 'scvalue' => $_POST['scvalue'])) == "true") {
 		// success! your form was validated
 		// do what you like next ...
@@ -35,6 +35,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 			// alas! the validation has failed, the user might be a spam bot or just got the result wrong
 			// handle this as you like
 		$sweet = false;
+		
 	}
 
 	//Verifies the Google captcha is set
@@ -55,7 +56,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	$data = json_decode($response);
 
 	//If its a bot it redirects to index
-	if($data->success==false && $sweet==false)
+	if($data->success==false || $sweet==false)
      {
        header("Location:index.php?type=bot");
      }
