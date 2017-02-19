@@ -23,6 +23,34 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	{
 		header("Location:index.php?type=err");
 	}
+	//googleradio
+	if(isset($_POST['googleradio']))
+	{
+		$googleradio = $_POST['googleradio'];
+	}
+	else
+	{
+		header("Location:index.php?type=err");
+	}
+	//sweetradio
+	if(isset($_POST['sweetradio']))
+	{
+		$sweetradio = $_POST['sweetradio'];
+	}
+	else
+	{
+		header("Location:index.php?type=err");
+	}
+	//judgementradio
+	if(isset($_POST['judgementradio']))
+	{
+		$judgementradio = $_POST['judgementradio'];
+	}
+	else
+	{
+		header("Location:index.php?type=err");
+	}
+
 	//Verifies the Sweet captcha is set
 	$sweet=false;
 	require_once("sweetcaptcha.php");
@@ -35,7 +63,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 			// alas! the validation has failed, the user might be a spam bot or just got the result wrong
 			// handle this as you like
 		$sweet = false;
-		
+
 	}
 
 	//Verifies the Google captcha is set

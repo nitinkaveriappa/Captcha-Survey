@@ -5,7 +5,7 @@ function errCheck()
 	unescape(url);
 	if(url.search('\\?type=err')>0)
 	{
-		document.getElementById('errmsg').innerHTML="Please Enter Valid NAME and EMAIL ID";
+		document.getElementById('errmsg').innerHTML="Please Enter Valid NAME and EMAIL ID and Answer all the Questions";
 	}
 	else if(url.search('\\?type=bot')>0)
 	{
