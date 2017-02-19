@@ -1,83 +1,117 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Captcha Survey</title>
-<style>
+<!DOCTYPE html>
+<html lang="en">
 
-</style>
-</head>
+<?php
+session_start();
+if (!isset($_SESSION['created']))
+{
+  $_SESSION['created'] = time();
+}
+$idle = time() - $_SESSION['created'];
+if ($idle > 30000)
+{
+  // Unset all of the session variables
+  $_SESSION = array();
+  // Delete the session cookie
+	if (ini_get("session.use_cookies"))
+	{
+    	$params = session_get_cookie_params();
+    	setcookie(session_name(), '', time() - 42000, $params["path"], $params["domain"], $params["secure"], $params["httponly"]);
+	}
+	//Destroy session
+   	if(session_destroy()) {
+      header("Location:index.html");
+   }
+ }
+?>
 
-<body>
-<h1>Survey</h1>
-<p>Please enter your name and email id. <br/> These details will not be sold to any fuckin' body</p>
-<form>
-Name: <input type="text" id="name" /><br/>
-Email: <input type="text" id="email" /><br/>
-<p>Please fill the following captchas </p>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags must come first in the head; any other head content must come after these tags -->
+    <meta name="description" content="Captcha Survey Page">
+	  <meta name="author" content="Nitin Kaveriappa">
+    <link rel="icon" href="favicon.ico">
 
-<div id="c1"><h2><b>Captcha 1 here</b></h2></div>
-<p>How user friendly did you find the above captcha to fill ? <br/>
-<input type="radio" name="c1" value="1"/>1<br/>
-<input type="radio" name="c1" value="1"/>2<br/>
-<input type="radio" name="c1" value="1"/>3<br/>
-<input type="radio" name="c1" value="1"/>4<br/>
-<input type="radio" name="c1" value="1"/>5<br/>
-<input type="radio" name="c1" value="1"/>6<br/>
-<input type="radio" name="c1" value="1"/>7<br/>
-<input type="radio" name="c1" value="1"/>8<br/>
-<input type="radio" name="c1" value="1"/>9<br/>
-<input type="radio" name="c1" value="1"/>10</p>
+    <title>Survey</title>
 
-<div id="c2"><h2><b>Captcha 2 here</b></h2></div>
-<p>How user friendly did you find the above captcha to fill ?<br/>
-<input type="radio" name="c2" value="1"/>1<br/>
-<input type="radio" name="c2" value="1"/>2<br/>
-<input type="radio" name="c2" value="1"/>3<br/>
-<input type="radio" name="c2" value="1"/>4<br/>
-<input type="radio" name="c2" value="1"/>5<br/>
-<input type="radio" name="c2" value="1"/>6<br/>
-<input type="radio" name="c2" value="1"/>7<br/>
-<input type="radio" name="c2" value="1"/>8<br/>
-<input type="radio" name="c2" value="1"/>9<br/>
-<input type="radio" name="c2" value="1"/>10</p>
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-<div id="c3"><h2><b>Captcha 3 here</b></h2></div>
-<p>How user friendly did you find the above captcha to fill ?<br/>
-<input type="radio" name="c3" value="1"/>1<br/>
-<input type="radio" name="c3" value="1"/>2<br/>
-<input type="radio" name="c3" value="1"/>3<br/>
-<input type="radio" name="c3" value="1"/>4<br/>
-<input type="radio" name="c3" value="1"/>5<br/>
-<input type="radio" name="c3" value="1"/>6<br/>
-<input type="radio" name="c3" value="1"/>7<br/>
-<input type="radio" name="c3" value="1"/>8<br/>
-<input type="radio" name="c3" value="1"/>9<br/>
-<input type="radio" name="c3" value="1"/>10</p>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="bootstrap/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
-<div id="c4"><h2><b>Captcha 4 here</b></h2></div>
-<p>How user friendly did you find the above captcha to fill ?<br/>
-<input type="radio" name="c4" value="1"/>1<br/>
-<input type="radio" name="c4" value="1"/>2<br/>
-<input type="radio" name="c4" value="1"/>3<br/>
-<input type="radio" name="c4" value="1"/>4<br/>
-<input type="radio" name="c4" value="1"/>5<br/>
-<input type="radio" name="c4" value="1"/>6<br/>
-<input type="radio" name="c4" value="1"/>7<br/>
-<input type="radio" name="c4" value="1"/>8<br/>
-<input type="radio" name="c4" value="1"/>9<br/>
-<input type="radio" name="c4" value="1"/>10</p>
+    <!-- Custom styles for this template -->
+    <link href="bootstrap/css/signin.css" rel="stylesheet">
 
-<p>Which would you prefer ?
-<input type="radio" name="q1" value="1"/>Captcha 1<br/>
-<input type="radio" name="q1" value="2"/>Captcha 2<br/>
-<input type="radio" name="q1" value="3"/>Captcha 3<br/>
-<input type="radio" name="q1" value="4"/>Captcha 4<br/>
-<input type="radio" name="q1" value="0"/>No Captcha<br/>
-</p>
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
 
-<input type="Submit" name="submit" value="SUBMIT"/>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+
+	<script src="js/script.js"></script>
+	<script src='js/jquery-3.1.1.min.js'></script>
+	<style>
+	#no {
+		display: none;
+	}
+	</style>
+
+  <script>
+    window.onload = function() {
+      errCheck()	};
+  </script>
+  <script src="js/error.js"></script>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <span id="errmsg" style="color:#F03"> </span><br/><br/>
+
+      <form class="form-signin" action="submit_data.php" method="POST">
+        <h2 class="form-signin-heading">Captcha-Survey</h2>
+		    <label for="inputName" class="sr-only">Name</label>
+		    <input type="text" name="Name" id="inputName" class="form-control" placeholder="John Doe" autofocus>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" name="Email" id="inputEmail" class="form-control" placeholder="johndoe@gmail.com">
+        <br/>
+        <div class="g-recaptcha" data-theme="dark" data-sitekey="6LdahgcUAAAAAAm5QqZCBVaaIvZIhL5ehTSPXsd2"></div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+      </form>
+
+	<center>
+		Hardware Values<br>
+		<div id="yes">
+				<span class="head">Accelerometer</span>
+				<span id="xlabel"></span>
+				<span id="ylabel"></span>
+				<span id="zlabel"></span>
+				<span id="ilabel"></span>
+				<span id="arAlphalabel"></span>
+				<span id="arBetalabel"></span>
+				<span id="arGammalabel"></span>
+				<span class="head">Gyroscope</span>
+				<span id="alphalabel"></span>
+				<span id="betalabel"></span>
+				<span id="gammalabel"></span>
+		</div>
+		<div id="no">
+			Your browser does not support Device Orientation and Motion API. Try this sample with iPhone, iPod or iPad with iOS 4.2+.
+		</div>
+	</center>
+    </div> <!-- /container -->
 
 
-</body>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
 </html>
