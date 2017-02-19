@@ -92,34 +92,34 @@ if ($idle > 180)
         <br/>
         <p>How user friendly did you find the above captcha to fill?</p>
         <div class="radio">
-          <label><input type="radio" name="googleradio">1 (Most User Unfriendly)</label>
+          <label><input type="radio" name="googleradio" value="1">1 (Most User Unfriendly)</label>
         </div>
         <div class="radio">
-          <label><input type="radio" name="googleradio">2</label>
+          <label><input type="radio" name="googleradio" value="2">>2</label>
         </div>
         <div class="radio">
-          <label><input type="radio" name="googleradio">3</label>
+          <label><input type="radio" name="googleradio" value="3">>3</label>
         </div>
         <div class="radio">
-          <label><input type="radio" name="googleradio">4</label>
+          <label><input type="radio" name="googleradio" value="4">>4</label>
         </div>
         <div class="radio">
-          <label><input type="radio" name="googleradio">5</label>
+          <label><input type="radio" name="googleradio" value="5">>5</label>
         </div>
         <div class="radio">
-          <label><input type="radio" name="googleradio">6</label>
+          <label><input type="radio" name="googleradio" value="6">>6</label>
         </div>
         <div class="radio">
-          <label><input type="radio" name="googleradio">7</label>
+          <label><input type="radio" name="googleradio" value="7">>7</label>
         </div>
         <div class="radio">
-          <label><input type="radio" name="googleradio">8</label>
+          <label><input type="radio" name="googleradio" value="8">>8</label>
         </div>
         <div class="radio">
-          <label><input type="radio" name="googleradio">9</label>
+          <label><input type="radio" name="googleradio" value="9">>9</label>
         </div>
         <div class="radio">
-          <label><input type="radio" name="googleradio">10 (Most User Friendly)</label>
+          <label><input type="radio" name="googleradio" value="10">>10 (Most User Friendly)</label>
         </div>
         <br/>
         <p>Please solve this captcha below!</p>
@@ -131,35 +131,47 @@ if ($idle > 180)
         <br/>
         <p>How user friendly did you find the above captcha to fill?</p>
         <div class="radio">
-          <label><input type="radio" name="sweetradio">1 (Most User Unfriendly)</label>
+          <label><input type="radio" name="sweetradio" value="1">>1 (Most User Unfriendly)</label>
         </div>
         <div class="radio">
-          <label><input type="radio" name="sweetradio">2</label>
+          <label><input type="radio" name="sweetradio" value="2">>2</label>
         </div>
         <div class="radio">
-          <label><input type="radio" name="sweetradio">3</label>
+          <label><input type="radio" name="sweetradio" value="2">>3</label>
         </div>
         <div class="radio">
-          <label><input type="radio" name="sweetradio">4</label>
+          <label><input type="radio" name="sweetradio" value="4">>4</label>
         </div>
         <div class="radio">
-          <label><input type="radio" name="sweetradio">5</label>
+          <label><input type="radio" name="sweetradio" value="5">>5</label>
         </div>
         <div class="radio">
-          <label><input type="radio" name="sweetradio">6</label>
+          <label><input type="radio" name="sweetradio" value="6">>6</label>
         </div>
         <div class="radio">
-          <label><input type="radio" name="sweetradio">7</label>
+          <label><input type="radio" name="sweetradio" value="7">>7</label>
         </div>
         <div class="radio">
-          <label><input type="radio" name="sweetradio">8</label>
+          <label><input type="radio" name="sweetradio" value="8">>8</label>
         </div>
         <div class="radio">
-          <label><input type="radio" name="sweetradio">9</label>
+          <label><input type="radio" name="sweetradio" value="9">>9</label>
         </div>
         <div class="radio">
-          <label><input type="radio" name="sweetradio">10 (Most User Friendly)</label>
+          <label><input type="radio" name="sweetradio" value="10">>10 (Most User Friendly)</label>
         </div>
+        <br/>
+        <p>Which would you prefer?</p>
+        <div class="radio">
+          <label><input type="radio" name="judgementradio" value="1">>Captcha 1</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="judgementradio" value="2">>Captcha 2</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="judgementradio" value="3">>Prefer No Captcha at all!!!</label>
+        </div>
+        <br/>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
       </form>
 
