@@ -72,6 +72,10 @@ if ($idle > 180)
   </head>
 
   <body>
+	<!--/*Are You a Human Tag*/-->
+	<script type="text/javascript" src="https://n-cdn.areyouahuman.com/play/sMG6XzdgJi4MRYTEZqM2csEEHob48TFcHBQnhLsC"></script>
+	<noscript><img src="https://n-cdn.areyouahuman.com/noscript/sMG6XzdgJi4MRYTEZqM2csEEHob48TFcHBQnhLsC"></noscript>
+	<!--/*End Human Tag*/-->
 
     <div class="container">
 
