@@ -1,4 +1,6 @@
 <?php
+session_start();
+$current_id = session_id();
 //Verifies form, directs to success or survey page
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
@@ -49,7 +51,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 		include('data_store.php');
 		$submit_data = new store_incoming();
-	  $submit_data->user_data($name,$email,$remoteip);
+	  $submit_data->user_data($name,$email,$remoteip,$current_id);
 	}
 }
 ?>
