@@ -8,7 +8,7 @@ if (!isset($_SESSION['created']))
   $_SESSION['created'] = time();
 }
 $idle = time() - $_SESSION['created'];
-if ($idle > 30000)
+if ($idle > 180)
 {
   // Unset all of the session variables
   $_SESSION = array();
