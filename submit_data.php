@@ -26,7 +26,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 	//Verifies the Sweet captcha is set
 	$sweet=false;
-	if (isset($_POST['sckey']) and isset($_POST['scvalue']) and $sweetcaptcha->check(array('sckey' => $_POST['sckey'], 'scvalue' => $_POST['scvalue'])) == "true") {
+	if (isset($_POST['sckey']) && isset($_POST['scvalue']) && $sweetcaptcha->check(array('sckey' => $_POST['sckey'], 'scvalue' => $_POST['scvalue'])) == "true") {
 		// success! your form was validated
 		// do what you like next ...
 		$sweet = true;
