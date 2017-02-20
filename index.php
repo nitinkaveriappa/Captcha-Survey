@@ -87,42 +87,7 @@ if ($idle > 180)
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" name="Email" id="inputEmail" class="form-control" placeholder="johndoe@gmail.com">
         <br/>
-        <p>Please solve this captcha below!</p>
-        <div class="g-recaptcha" data-theme="dark" data-sitekey="6LdahgcUAAAAAAm5QqZCBVaaIvZIhL5ehTSPXsd2"></div>
-        <br/>
-        <p>How user friendly did you find the above captcha to fill?</p>
-        <div class="radio">
-          <label><input type="radio" name="googleradio" value="1">1 (Least User Friendly)</label>
-        </div>
-        <div class="radio">
-          <label><input type="radio" name="googleradio" value="2">2</label>
-        </div>
-        <div class="radio">
-          <label><input type="radio" name="googleradio" value="3">3</label>
-        </div>
-        <div class="radio">
-          <label><input type="radio" name="googleradio" value="4">4</label>
-        </div>
-        <div class="radio">
-          <label><input type="radio" name="googleradio" value="5">5</label>
-        </div>
-        <div class="radio">
-          <label><input type="radio" name="googleradio" value="6">6</label>
-        </div>
-        <div class="radio">
-          <label><input type="radio" name="googleradio" value="7">7</label>
-        </div>
-        <div class="radio">
-          <label><input type="radio" name="googleradio" value="8">8</label>
-        </div>
-        <div class="radio">
-          <label><input type="radio" name="googleradio" value="9">9</label>
-        </div>
-        <div class="radio">
-          <label><input type="radio" name="googleradio" value="10">10 (Most User Friendly)</label>
-        </div>
-        <br/>
-        <p>Please solve this captcha below!</p>
+          <p>Please solve this captcha below!</p>
         <!-- sweetcaptcha -->
         <?php
         require_once('sweetcaptcha.php');
@@ -161,6 +126,43 @@ if ($idle > 180)
           <label><input type="radio" name="sweetradio" value="10">10 (Most User Friendly)</label>
         </div>
         <br/>
+        
+        <p>Please solve this captcha below!</p>
+        <div class="g-recaptcha" data-theme="dark" data-sitekey="6LdahgcUAAAAAAm5QqZCBVaaIvZIhL5ehTSPXsd2"></div>
+        <br/>
+        <p>How user friendly did you find the above captcha to fill?</p>
+        <div class="radio">
+          <label><input type="radio" name="googleradio" value="1">1 (Least User Friendly)</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="googleradio" value="2">2</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="googleradio" value="3">3</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="googleradio" value="4">4</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="googleradio" value="5">5</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="googleradio" value="6">6</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="googleradio" value="7">7</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="googleradio" value="8">8</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="googleradio" value="9">9</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="googleradio" value="10">10 (Most User Friendly)</label>
+        </div>
+        <br/>
+      
         <p>Which would you prefer?</p>
         <div class="radio">
           <label><input type="radio" name="judgementradio" value="1">Captcha 1</label>

@@ -78,8 +78,8 @@ class store_incoming
 			$addUserData->bindParam(':ip',$remoteip);
 			$addUserData->bindParam(':name',$name);
 			$addUserData->bindParam(':email',$email);
-			$addUserData->bindParam(':q1',$googleradio);
-			$addUserData->bindParam(':q2',$sweetradio);
+			$addUserData->bindParam(':q1',$sweetradio);
+			$addUserData->bindParam(':q2',$googleradio);
 			$addUserData->bindParam(':q3',$judgementradio);
 			$addUserData->execute();
 		//Sends the thankYou email to member
