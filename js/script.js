@@ -52,6 +52,7 @@ var intervalId = setInterval(function() {
 		document.getElementById("betalabel").innerHTML = "Beta: " + beta;
 		document.getElementById("gammalabel").innerHTML = "Gamma: " + gamma;
 
+		
 		var d = new Date();
 		var n = d.getTime();
 
