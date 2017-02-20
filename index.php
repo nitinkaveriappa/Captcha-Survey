@@ -185,7 +185,7 @@ if ($idle > 180)
 				<span id="ilabel"></span>
 				<span id="arAlphalabel"></span>
 				<span id="arBetalabel"></span>
-				<span id="arGammalabel"></span>
+				<span id="arGammalabel"></span><br/>
 				<span class="head">Gyroscope</span>
 				<span id="alphalabel"></span>
 				<span id="betalabel"></span>
