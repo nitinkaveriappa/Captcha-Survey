@@ -67,7 +67,7 @@ $idle = time() - $_SESSION['created'];
 
       <form class="form-signin" action="submit_data.php" method="POST">
         <span id="errmsg" style="color:#F03"> </span><br/>
-        
+
         <h2 class="form-signin-heading">Captcha-Survey</h2><br/>
         	<p>The objective of this survey is to determine if users prefer to fill captchas for verification or not. With this information, we plan to develop a human verification system that requires no tedious actions to be performed by the users.</p>
             <p>Please fill the following details. These details are gathered only to verify your uniqueness and will not be used beyond this purpose.</p>
@@ -115,7 +115,7 @@ $idle = time() - $_SESSION['created'];
           <label><input type="radio" name="sweetradio" value="10">10 (Most User Friendly)</label>
         </div>
         <br/>
-        
+
         <p>Please solve the captcha below!</p>
         <div class="g-recaptcha" data-theme="dark" data-sitekey="6LdahgcUAAAAAAm5QqZCBVaaIvZIhL5ehTSPXsd2"></div>
         <br/>
@@ -151,7 +151,7 @@ $idle = time() - $_SESSION['created'];
           <label><input type="radio" name="googleradio" value="10">10 (Most User Friendly)</label>
         </div>
         <br/>
-      
+
         <p>Which would you prefer?</p>
         <div class="radio">
           <label><input type="radio" name="judgementradio" value="1">Captcha 1</label>
@@ -182,6 +182,7 @@ $idle = time() - $_SESSION['created'];
 				<span id="betalabel"></span>
 				<span id="gammalabel"></span>
 		</div>
+    <p><span class="glyphicon glyphicon-copyright-mark"></span> Nitin Kaveriappa &amp; Paurav Surendra</p>    
 	</center>
     </div> <!-- /container -->
 
