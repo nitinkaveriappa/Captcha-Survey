@@ -11,3 +11,4 @@ $length2 = strlen('<script type="text/javascript" src="//');
 $pos = strpos($sweetRaw, 'clktag') - $length2;
 
 $sweethtml = substr($sweetRaw, 0, $pos).substr($sweetRaw,$pos+$length1-5);
+?>
