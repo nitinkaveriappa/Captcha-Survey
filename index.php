@@ -79,8 +79,8 @@ $idle = time() - $_SESSION['created'];
           <p>Please solve the captcha below!</p>
         <!-- sweetcaptcha -->
         <?php
-        require_once('sweetcaptcha.php');
-        echo $sweetcaptcha->get_html()
+        require_once('sweetfilter.php');
+        echo $sweethtml;
         ?>
         <br/>
         <p>How user friendly did you find the above captcha?</p>
