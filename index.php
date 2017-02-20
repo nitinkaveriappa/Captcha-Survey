@@ -81,7 +81,10 @@ if ($idle > 180)
 
       <form class="form-signin" action="submit_data.php" method="POST">
         <span id="errmsg" style="color:#F03"> </span><br/>
+        
         <h2 class="form-signin-heading">Captcha-Survey</h2><br/>
+        	<p>The objective of this survey is to determine if users prefer to fill captchas for verification. With this information, we plan to develop a human verification system that requires no tedious actions to be performed by the users.</p>
+            <p>Please fill the following details. These details are gathered only to verify your uniqueness and will not be used beyond this purpose.</p>
 		    <label for="inputName" class="sr-only">Name</label>
 		    <input type="text" name="Name" id="inputName" class="form-control" placeholder="John Doe" autofocus><br/>
         <label for="inputEmail" class="sr-only">Email address</label>
