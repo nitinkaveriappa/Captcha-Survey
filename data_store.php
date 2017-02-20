@@ -5,7 +5,6 @@ class store_incoming
 	function hardware_data($values,$remoteip,$sessionid)
 	{
 		include('dbconnect.php');
-		//include('log.php');
 		//A //check if IP already exists in table
 		$verifyQuery = $connection->prepare("SELECT user_id FROM user_data WHERE user_id=:session_id;");
 		$verifyQuery->bindParam(':session_id',$sessionid);
@@ -24,7 +23,7 @@ class store_incoming
 			$desktop=true;
 		}
 		//if A or B
-		if($verifyCount < 0 || $desktop==true) {
+		if($verifyCount > 0 || $desktop==true) {
 			//Do nothing
 		}
 		else {
@@ -54,14 +53,11 @@ class store_incoming
 
 			$addGyroData->execute();
 		}
-		//log_it("$playerEmail registration successful, pending verification");
-		//header('Location:index.html');
 	}
 
 	function user_data($name,$email,$remoteip,$sessionid,$googleradio,$sweetradio,$judgementradio)
 	{
 		include('dbconnect.php');
-		//include('log.php');
 		//A //check if IP already exists in table
 		$verifyQuery = $connection->prepare("SELECT user_id FROM user_data WHERE user_id=:session_id;");
 		$verifyQuery->bindParam(':session_id',$sessionid);
@@ -86,20 +82,7 @@ class store_incoming
 			$addUserData->bindParam(':q2',$googleradio);
 			$addUserData->bindParam(':q3',$judgementradio);
 			$addUserData->execute();
-		//Sends the thankYou email to member
-		//$this->thankYou($email);
 		}
-	}
-	//send email
-	function thankYou($email)
-	{
-		//send thankYou
-		$config = parse_ini_file('config.php');
-		$link = $config['link'];
-		$headers='From: nitinkaveriappa@yahoo.in'. "\r\n" .'MIME-Version: 1.0' . "\r\n" .'Content-type: text/html; charset=utf-8' ."\r\n" .'X-Mailer: PHP/' . phpversion();
-		$subject = 'Thank You';
-		$content = "Please share the link with your friends: $link";
-		mail($email,$subject,$content,$headers );
 	}
 }
 ?>
