@@ -182,7 +182,7 @@ $idle = time() - $_SESSION['created'];
 				<span id="betalabel"></span>
 				<span id="gammalabel"></span>
 		</div>
-    <p><span class="glyphicon glyphicon-copyright-mark"></span> Nitin Kaveriappa &amp; Paurav Surendra</p>    
+    <p>&copy; Nitin Kaveriappa &amp; Paurav Surendra</p>    
 	</center>
     </div> <!-- /container -->
 
