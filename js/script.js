@@ -40,11 +40,7 @@ else {
 
 
 var intervalId = setInterval(function() {
-		counter++;
-		if(counter >= 10)
-		{
-			clearInterval(intervalId);
-		}
+		
 		document.getElementById("xlabel").innerHTML = "X: " + ax;
 		document.getElementById("ylabel").innerHTML = "Y: " + ay;
 		document.getElementById("zlabel").innerHTML = "Z: " + az;
@@ -63,8 +59,7 @@ var intervalId = setInterval(function() {
 		sendData(data);
 		
 	}, delay);
-	
-	
+
 
 
 
@@ -72,12 +67,16 @@ var intervalId = setInterval(function() {
 }
 
 function sendData(data) {
-	$.ajax({
-		url: 'survey_data.php',
-		data: data,
-		type: 'POST',
-		dataType: 'text',
-		success: function(){ },
-		error: function() {alert("Ajax Error");}
+	counter++;
+		if(counter < 10)
+		{
+			$.ajax({
+			url: 'survey_data.php',
+			data: data,
+			type: 'POST',
+			dataType: 'text',
+			success: function(){ },
+			error: function() {alert("Ajax Error");}
 		});
+		}
 }
