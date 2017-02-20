@@ -74,7 +74,7 @@ function sendData(data) {
 			type: 'POST',
 			dataType: 'text',
 			success: function(){ },
-			error: function() {alert("Ajax Error");}
+			error: function() {}
 		});
 		}
 }

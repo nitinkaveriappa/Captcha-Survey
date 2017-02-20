@@ -8,21 +8,7 @@ if (!isset($_SESSION['created']))
   $_SESSION['created'] = time();
 }
 $idle = time() - $_SESSION['created'];
-if ($idle > 180)
-{
-  // Unset all of the session variables
-  $_SESSION = array();
-  // Delete the session cookie
-	if (ini_get("session.use_cookies"))
-	{
-    	$params = session_get_cookie_params();
-    	setcookie(session_name(), '', time() - 42000, $params["path"], $params["domain"], $params["secure"], $params["httponly"]);
-	}
-	//Destroy session
-   	if(session_destroy()) {
-      header("Location:index.php");
-   }
- }
+
 ?>
 
   <head>
@@ -83,23 +69,23 @@ if ($idle > 180)
         <span id="errmsg" style="color:#F03"> </span><br/>
         
         <h2 class="form-signin-heading">Captcha-Survey</h2><br/>
-        	<p>The objective of this survey is to determine if users prefer to fill captchas for verification. With this information, we plan to develop a human verification system that requires no tedious actions to be performed by the users.</p>
+        	<p>The objective of this survey is to determine if users prefer to fill captchas for verification or not. With this information, we plan to develop a human verification system that requires no tedious actions to be performed by the users.</p>
             <p>Please fill the following details. These details are gathered only to verify your uniqueness and will not be used beyond this purpose.</p>
 		    <label for="inputName" class="sr-only">Name</label>
-		    <input type="text" name="Name" id="inputName" class="form-control" placeholder="John Doe" autofocus><br/>
+		    <input type="text" name="Name" id="inputName" class="form-control" placeholder="Name" required autofocus><br/>
         <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" name="Email" id="inputEmail" class="form-control" placeholder="johndoe@gmail.com">
+        <input type="email" name="Email" id="inputEmail" class="form-control" placeholder="Email Id" required>
         <br/>
-          <p>Please solve this captcha below!</p>
+          <p>Please solve the captcha below!</p>
         <!-- sweetcaptcha -->
         <?php
         require_once('sweetcaptcha.php');
         echo $sweetcaptcha->get_html()
         ?>
         <br/>
-        <p>How user friendly did you find the above captcha to fill?</p>
+        <p>How user friendly did you find the above captcha?</p>
         <div class="radio">
-          <label><input type="radio" name="sweetradio" value="1">1 (Least User Friendly)</label>
+          <label><input type="radio" name="sweetradio" value="1" required>1 (Least User Friendly)</label>
         </div>
         <div class="radio">
           <label><input type="radio" name="sweetradio" value="2">2</label>
@@ -130,12 +116,12 @@ if ($idle > 180)
         </div>
         <br/>
         
-        <p>Please solve this captcha below!</p>
+        <p>Please solve the captcha below!</p>
         <div class="g-recaptcha" data-theme="dark" data-sitekey="6LdahgcUAAAAAAm5QqZCBVaaIvZIhL5ehTSPXsd2"></div>
         <br/>
-        <p>How user friendly did you find the above captcha to fill?</p>
+        <p>How user friendly did you find the above captcha?</p>
         <div class="radio">
-          <label><input type="radio" name="googleradio" value="1">1 (Least User Friendly)</label>
+          <label><input type="radio" name="googleradio" value="1" required>1 (Least User Friendly)</label>
         </div>
         <div class="radio">
           <label><input type="radio" name="googleradio" value="2">2</label>
@@ -174,7 +160,7 @@ if ($idle > 180)
           <label><input type="radio" name="judgementradio" value="2">Captcha 2</label>
         </div>
         <div class="radio">
-          <label><input type="radio" name="judgementradio" value="3">Prefer No Captcha at all!!!</label>
+          <label><input type="radio" name="judgementradio" value="3">No Captcha at all!!!</label>
         </div>
         <br/>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
@@ -195,9 +181,6 @@ if ($idle > 180)
 				<span id="alphalabel"></span>
 				<span id="betalabel"></span>
 				<span id="gammalabel"></span>
-		</div>
-		<div id="no">
-			Your browser does not support Device Orientation and Motion API. Try this sample with iPhone, iPod or iPad with iOS 4.2+.
 		</div>
 	</center>
     </div> <!-- /container -->

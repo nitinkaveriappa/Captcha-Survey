@@ -1,6 +1,11 @@
 <?php
 session_start();
 $current_id = session_id();
+if (!isset($_SESSION['created']))
+{
+  $_SESSION['created'] = time();
+}
+$idle = time() - $_SESSION['created'];
 
 //Verifies form, directs to success or survey page
 if($_SERVER["REQUEST_METHOD"] == "POST")
@@ -56,14 +61,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	require_once("sweetcaptcha.php");
 	if (isset($_POST['sckey']) && isset($_POST['scvalue']) && $sweetcaptcha->check(array('sckey' => $_POST['sckey'], 'scvalue' => $_POST['scvalue'])) == "true") {
 		// success! your form was validated
-		// do what you like next ...
 		$sweet = true;
 	}
 	else {
 			// alas! the validation has failed, the user might be a spam bot or just got the result wrong
-			// handle this as you like
 		$sweet = false;
-
 	}
 
 	//Verifies the Google captcha is set
@@ -97,6 +99,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	  $submit_data->user_data($name,$email,$remoteip,$current_id,$googleradio,$sweetradio,$judgementradio);
 	}
 }
+if ($idle > 180)
+{
+	session_regenerate_id();
+  // Unset all of the session variables
+  $_SESSION = array();
+  // Delete the session cookie
+	if (ini_get("session.use_cookies"))
+	{
+    	$params = session_get_cookie_params();
+    	setcookie(session_name(), '', time() - 42000, $params["path"], $params["domain"], $params["secure"], $params["httponly"]);
+	}
+}
+
 ?>
 <head>
     <meta charset="utf-8">
