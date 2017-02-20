@@ -94,7 +94,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 		include('data_store.php');
 		$submit_data = new store_incoming();
-	  $submit_data->user_data($name,$email,$remoteip,$current_id);
+	  $submit_data->user_data($name,$email,$remoteip,$current_id,$googleradio,$sweetradio,$judgementradio);
 	}
 }
 ?>

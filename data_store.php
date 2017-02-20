@@ -54,7 +54,7 @@ class store_incoming
 		//header('Location:index.html');
 	}
 
-	function user_data($name,$email,$remoteip,$sessionid)
+	function user_data($name,$email,$remoteip,$sessionid,$googleradio,$sweetradio,$judgementradio)
 	{
 		include('dbconnect.php');
 		//include('log.php');
@@ -73,11 +73,14 @@ class store_incoming
 		else
 		{
 			//Add the new user_data into database
-			$addUserData = $connection->prepare("INSERT INTO user_data(user_id, ip_address, name, email) VALUES(:sid,:ip,:name,:email);");
+			$addUserData = $connection->prepare("INSERT INTO user_data(user_id, ip_address, name, email, q1, q2, q3) VALUES(:sid,:ip,:name,:email,:q1,:q2,:q3);");
 			$addUserData->bindParam(':sid',$sessionid);
 			$addUserData->bindParam(':ip',$remoteip);
 			$addUserData->bindParam(':name',$name);
 			$addUserData->bindParam(':email',$email);
+			$addUserData->bindParam(':q1',$googleradio);
+			$addUserData->bindParam(':q2',$sweetradio);
+			$addUserData->bindParam(':q3',$judgementradio);
 			$addUserData->execute();
 		//Sends the thankYou email to member
 		//$this->thankYou($email);
