@@ -54,7 +54,7 @@ if ($idle > 180)
     <![endif]-->
 
   <script src='https://www.google.com/recaptcha/api.js'></script>
-
+	<script src="js/error.js"></script>
 	<script src="js/script.js"></script>
 	<script src='js/jquery-3.1.1.min.js'></script>
 	<style>
