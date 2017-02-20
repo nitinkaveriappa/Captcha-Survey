@@ -10,7 +10,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	if(isset($_POST['data']))
 	{
 		$obj = $_POST['data'];
-		$values = split(',',$obj,10);
+		$values = split(',',$obj,11);
 		$remoteip= $_SERVER['REMOTE_ADDR'];
 
 		$survey_data = new store_incoming();

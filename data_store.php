@@ -30,7 +30,7 @@ class store_incoming
 		else {
 			//Add the new data into database
 			//accelerometer_data
-			$addAccelData = $connection->prepare("INSERT INTO accelerometer_data(user_id, ip_address, acc_x, acc_y, acc_z, acc_i, acc_alpha, acc_beta, acc_gamma) VALUES(:sid,:ip,:x,:y,:z,:i,:a,:b,:g);");
+			$addAccelData = $connection->prepare("INSERT INTO accelerometer_data(user_id, ip_address, acc_x, acc_y, acc_z, acc_i, acc_alpha, acc_beta, acc_gamma, curr_time) VALUES(:sid,:ip,:x,:y,:z,:i,:a,:b,:g,:t);");
 			$addAccelData->bindParam(':sid',$sessionid);
 			$addAccelData->bindParam(':ip',$remoteip);
 			$addAccelData->bindParam(':x',$values[0]);
@@ -40,14 +40,18 @@ class store_incoming
 			$addAccelData->bindParam(':a',$values[4]);
 			$addAccelData->bindParam(':b',$values[5]);
 			$addAccelData->bindParam(':g',$values[6]);
+			$addAccelData->bindParam(':t',$values[10]);
+
 			$addAccelData->execute();
 
-			$addGyroData = $connection->prepare("INSERT INTO gryoscope_data(user_id, ip_address, gyro_alpha, gyro_beta, gyro_gamma) VALUES(:sid,:ip,:alpha,:beta,:gamma);");
+			$addGyroData = $connection->prepare("INSERT INTO gryoscope_data(user_id, ip_address, gyro_alpha, gyro_beta, gyro_gamma, curr_time) VALUES(:sid,:ip,:alpha,:beta,:gamma,:t);");
 			$addGyroData->bindParam(':sid',$sessionid);
 			$addGyroData->bindParam(':ip',$remoteip);
 			$addGyroData->bindParam(':alpha',$values[7]);
 			$addGyroData->bindParam(':beta',$values[8]);
 			$addGyroData->bindParam(':gamma',$values[9]);
+			$addGyroData->bindParam(':t',$values[10]);
+
 			$addGyroData->execute();
 		}
 		//log_it("$playerEmail registration successful, pending verification");
