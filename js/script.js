@@ -15,7 +15,6 @@ var counter = 0;
 var delay = 250;
 
 if (window.DeviceMotionEvent==undefined) {
-	document.getElementById("no").style.display="block";
 	document.getElementById("yes").style.display="none";
 }
 else {
