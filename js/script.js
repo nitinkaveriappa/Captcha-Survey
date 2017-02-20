@@ -12,7 +12,7 @@ var beta = 0;
 var gamma = 0;
 
 var counter = 0;
-var delay = 500;
+var delay = 250;
 
 if (window.DeviceMotionEvent==undefined) {
 	document.getElementById("no").style.display="block";
@@ -40,7 +40,7 @@ else {
 
 
 var intervalId = setInterval(function() {
-		
+
 		document.getElementById("xlabel").innerHTML = "X: " + ax;
 		document.getElementById("ylabel").innerHTML = "Y: " + ay;
 		document.getElementById("zlabel").innerHTML = "Z: " + az;
@@ -57,18 +57,18 @@ var intervalId = setInterval(function() {
 		var obj = ax+','+ay+','+az+','+ai+','+arAlpha+','+arBeta+','+arGamma+','+alpha+','+beta+','+gamma;
 		var data ="data="+obj;
 		sendData(data);
-		
+
 	}, delay);
 
 
 
 
-	
+
 }
 
 function sendData(data) {
 	counter++;
-		if(counter < 10)
+		if(counter < 480)
 		{
 			$.ajax({
 			url: 'survey_data.php',
